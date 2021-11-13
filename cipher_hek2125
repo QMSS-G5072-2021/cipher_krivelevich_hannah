@@ -1,0 +1,41 @@
+Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from cookiecutter.main import cookiecutter
+>>> cookiecutter('cookiecutter-pypackage/')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\Hannah\AppData\Roaming\Python\Python39\site-packages\cookiecutter\main.py", line 67, in cookiecutter
+    repo_dir, cleanup = determine_repo_dir(
+  File "C:\Users\Hannah\AppData\Roaming\Python\Python39\site-packages\cookiecutter\repository.py", line 131, in determine_repo_dir
+    raise RepositoryNotFound(
+cookiecutter.exceptions.RepositoryNotFound: A valid repository for "cookiecutter-pypackage/" could not be found in the following locations:
+cookiecutter-pypackage/
+C:\Users\Hannah/.cookiecutters/cookiecutter-pypackage/
+>>> cookiecutter('https://github.com/audreyr/cookiecutter-pypackage.git')
+full_name [Audrey Roy Greenfeld]: Hannah Krivelevich
+email [audreyr@example.com]: hannahkrivelevich@gmail.com
+github_username [audreyr]: HannahKrivelevich
+project_name [Python Boilerplate]: cipher_hek2125
+project_slug [cipher_hek2125]: cipher_hek2125
+project_short_description [Python Boilerplate contains all the boilerplate you need to create a Python package.]: HW07 Cookiecutter Practice.
+pypi_username [HannahKrivelevich]: HannahKrivelevich
+version [0.1.0]:
+use_pytest [n]: n
+use_black [n]: n
+use_pypi_deployment_with_travis [y]: y
+add_pyup_badge [n]: n
+Select command_line_interface:
+1 - Click
+2 - Argparse
+3 - No command-line interface
+Choose from 1, 2, 3 [1]: 1
+create_author_file [y]: y
+Select open_source_license:
+1 - MIT license
+2 - BSD license
+3 - ISC license
+4 - Apache Software License 2.0
+5 - GNU General Public License v3
+6 - Not open source
+Choose from 1, 2, 3, 4, 5, 6 [1]: 1
+'C:\\Python\\Python39\\cipher_hek2125'
