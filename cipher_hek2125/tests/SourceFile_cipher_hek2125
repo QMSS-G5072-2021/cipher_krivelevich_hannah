@@ -1,0 +1,16 @@
+def cipher(text, shift, encrypt=True):
+  '''Describe this function: This function is a cipher which outputs the result of a defined alphabetic shift.
+     Inputs and outputs: The inputs are the initial word or phrase and the numerical value of the shift. The output is the word or phrase after the shift has occurred. 
+     Use Case: If the word was "hello" and there was a shift of -1, the output would be "gdkkn"
+  '''
+    alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    new_text = ''
+    for c in text:
+        index = alphabet.find(c)
+        if index == -1:
+            new_text += c
+        else:
+            new_index = index + shift if encrypt == True else index - shift
+            new_index %= len(alphabet)
+            new_text += alphabet[new_index:new_index+1]
+    return new_text
