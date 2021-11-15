@@ -3,8 +3,7 @@
 """Tests for `cipher_hek2125` package."""
 
 
-import unittest
-from click.testing import CliRunner
+import pytest
 
 from cipher_hek2125 import cipher_hek2125
 from cipher_hek2125 import cli
@@ -12,22 +11,23 @@ from cipher_hek2125 import cli
 
 class TestCipher_hek2125(unittest.TestCase):
     """Tests for `cipher_hek2125` package."""
+    
+  def cipher(text, shift, encrypt=True):
+    alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    new_text = ''
+    for c in text:
+        index = alphabet.find(c)
+        if index == -1:
+            new_text += c
+        else:
+            new_index = index + shift if encrypt == True else index - shift
+            new_index %= len(alphabet)
+            new_text += alphabet[new_index:new_index+1]
+    return new_text
 
-    def setUp(self):
-        """Set up test fixtures, if any."""
-
-    def tearDown(self):
-        """Tear down test fixtures, if any."""
-
-    def test_000_something(self):
-        """Test something."""
-
-    def test_command_line_interface(self):
-        """Test the CLI."""
-        runner = CliRunner()
-        result = runner.invoke(cli.main)
-        assert result.exit_code == 0
-        assert 'cipher_hek2125.cli.main' in result.output
-        help_result = runner.invoke(cli.main, ['--help'])
-        assert help_result.exit_code == 0
-        assert '--help  Show this message and exit.' in help_result.output
+    def test_Single_Word_Cipher():
+        example = 'sketch'
+        Single_Word_Shift = 3
+        expected = 'vnhwfk'
+        actual = cipher(example, Single_Word_Shift)
+        assert actual == expected
